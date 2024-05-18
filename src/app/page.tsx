@@ -1,4 +1,4 @@
-import { Content } from "@/components/content.layout/Content.Layout";
+import { Content } from "@/components/layout/content.layout/Content.Layout";
 
 export default function Home() {
   return <Content />;

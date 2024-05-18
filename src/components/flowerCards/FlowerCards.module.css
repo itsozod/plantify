@@ -1,0 +1,43 @@
+.flower_container {
+  padding: 10px 50px 10px 50px;
+  background-color: #004f44;
+}
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #004f44;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.btn_container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.explore_btn {
+  background-color: #004f44;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.shop_btn {
+  background-color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.flower_card {
+  display: flex;
+  gap: 10px;
+}

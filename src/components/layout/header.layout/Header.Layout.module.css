@@ -22,6 +22,9 @@
 }
 .icons_container {
   display: flex;
-
   gap: 10px;
+}
+.header_link {
+  text-decoration: none;
+  color: #fff;
 }

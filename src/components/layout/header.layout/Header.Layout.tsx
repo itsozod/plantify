@@ -16,10 +16,26 @@ export const Header = () => {
               gap: "25px",
             }}
           >
-            <li className={styles["header_list"]}>Shop</li>
-            <li className={styles["header_list"]}>Products</li>
-            <li className={styles["header_list"]}>Fertilizer</li>
-            <li className={styles["header_list"]}>Guide</li>
+            <li className={styles["header_list"]}>
+              <a className={styles["header_link"]} href="#">
+                Shop
+              </a>
+            </li>
+            <li className={styles["header_list"]}>
+              <a className={styles["header_link"]} href="#">
+                Products
+              </a>
+            </li>
+            <li className={styles["header_list"]}>
+              <a className={styles["header_link"]} href="#">
+                Fertilizer
+              </a>
+            </li>
+            <li className={styles["header_list"]}>
+              <a className={styles["header_link"]} href="#">
+                Guide
+              </a>
+            </li>
           </ul>
           <div>
             <PlantifyLogo />
