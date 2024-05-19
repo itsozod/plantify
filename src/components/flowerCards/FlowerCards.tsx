@@ -24,9 +24,26 @@ export const FlowerCards = () => {
           </div>
         </div>
         <div className={styles["flower_card"]}>
-          <Image width={150} height={200} src={Flower1} alt="Image" />
-          <Image width={150} height={200} src={Flower2} alt="Image" />
-          <Image width={150} height={200} src={Flower3} alt="Image" />
+          <Image
+            className={styles["flower_card_1"]}
+            // width={200} height={200}
+            src={Flower3}
+            alt="Image"
+          />
+          <Image
+            className={styles["flower_card_2"]}
+            // width={200} height={200}
+            src={Flower2}
+            alt="Image"
+          />
+          
+          <Image
+            className={styles["flower_card_3"]}
+            // width={500}
+            // height={900}
+            src={Flower1}
+            alt="Image"
+          />
         </div>
       </div>
     </div>
