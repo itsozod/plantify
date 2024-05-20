@@ -44,6 +44,7 @@
 .flower_card {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  /* grid-template-columns: repeat(3, 1fr); */
   grid-column-gap: 10px;
   grid-row-gap: 10px;
 }
@@ -68,7 +69,7 @@
   max-width: 100%;
   height: auto;
   grid-row: 1/5;
-  grid-column: 2/4;
+  grid-column: 2/5;
   object-fit: cover;
 }
 
