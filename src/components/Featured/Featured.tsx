@@ -1,37 +1,55 @@
-"use client";
+import Image from "next/image";
+import styles from "./Featured.module.css";
 
-import useSWR from "swr";
 interface Plant {
   id: number;
   title: string;
   img: string;
 }
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
-export const Featured = () => {
-  // const fileToBase64 = (file: File | null): Promise<string> => {
-  //   return new Promise((resolve, reject) => {
-  //     const reader = new FileReader();
-  //     reader.readAsDataURL(file as Blob);
-  //     reader.onload = () => resolve(reader.result as string);
-  //     reader.onerror = (error) => reject(error);
-  //   });
-  // };
+const wait = async(ms: number) => {
+return new Promise((resolve) => setTimeout(resolve, ms))
+}
 
-  // const handleChangeImg = async (e: ChangeEvent<HTMLInputElement>) => {
-  //   try {
-  //     const file = e.target.files && e.target.files[0];
-  //     const base64 = await fileToBase64(file);
-  //     setImg(base64);
-  //   } catch (error) {
-  //     console.error("Error converting file to base64:", error);
-  //   }
-  // };
-  const { data, isLoading, error } = useSWR(
-    "http://localhost:3001/plants",
-    fetcher
+const getPlants = async () => {
+  const res = await fetch("http://localhost:3001/plants");
+  const data = await res.json();
+  return data;
+};
+
+export const Featured = async () => {
+  const plants: Plant[] = await getPlants();
+  await wait (2000)
+  return (
+    <div
+      style={{
+        padding: "10px 50px 10px 50px",
+        background: "#fff",
+      }}
+    >
+      <div
+        style={{
+          maxWidth: "1200px",
+          margin: "0 auto",
+        }}
+      >
+        <h1 style={{ color: "#004f44" }}>Featured</h1>
+        <div className={styles["plants_container"]}>
+          {plants?.map((plant: Plant) => {
+            return (
+              <div key={plant?.id}>
+                <Image
+                  width={250}
+                  height={250}
+                  src={plant?.img}
+                  alt={plant?.title}
+                ></Image>
+                <p>{plant?.title}</p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
   );
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
-  return <div>{data?.map((plant: Plant) => plant.title)}</div>;
 };
