@@ -7,19 +7,18 @@ interface Plant {
   img: string;
 }
 
-const wait = async(ms: number) => {
-return new Promise((resolve) => setTimeout(resolve, ms))
-}
-
 const getPlants = async () => {
-  const res = await fetch("http://localhost:3001/plants");
-  const data = await res.json();
-  return data;
+  try {
+    const res = await fetch("http://localhost:3001/plants");
+    const data = await res.json();
+    return data;
+  } catch (e: any) {
+    console.log(e.message);
+  }
 };
 
 export const Featured = async () => {
   const plants: Plant[] = await getPlants();
-  await wait (2000)
   return (
     <div
       style={{
@@ -35,6 +34,7 @@ export const Featured = async () => {
       >
         <h1 style={{ color: "#004f44" }}>Featured</h1>
         <div className={styles["plants_container"]}>
+          {plants?.length === 0 && <div>Error fetching data</div>}
           {plants?.map((plant: Plant) => {
             return (
               <div key={plant?.id}>
