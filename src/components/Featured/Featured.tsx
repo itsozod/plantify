@@ -12,8 +12,8 @@ const getPlants = async () => {
     const res = await fetch("http://localhost:3001/plants");
     const data = await res.json();
     return data;
-  } catch (e: any) {
-    console.log(e.message);
+  } catch (e) {
+    console.log(e);
   }
 };
 
